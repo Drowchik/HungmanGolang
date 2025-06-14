@@ -15,7 +15,6 @@ func ReadValidatedInput(used map[rune]bool) rune {
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 
-		// Проверка: одна руна?
 		if len([]rune(input)) != 1 {
 			fmt.Println("Ошибка: нужно ввести одну букву.")
 			continue
@@ -23,13 +22,11 @@ func ReadValidatedInput(used map[rune]bool) rune {
 
 		r := []rune(input)[0]
 
-		// Проверка: русская буква?
 		if !isRussianLetter(r) {
 			fmt.Println("Ошибка: только русские буквы.")
 			continue
 		}
 
-		// Повтор?
 		if used[r] {
 			fmt.Println("Вы уже вводили эту букву.")
 			continue
